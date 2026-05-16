@@ -71,3 +71,7 @@ header p{
   opacity:0.85;
   transform:scale(1.02);
 }
+.logo {
+  height: 60px;
+  width: auto;
+}
