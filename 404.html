@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>404 - Messify Wallpapers</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --primary:#651FFF;
+    --secondary:#7C4DFF;
+    --accent:#FF9800;
+    --dark:#0F1117;
+    --text:#FFFFFF;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    overflow:hidden;
+    color:white;
+
+    background:
+    radial-gradient(circle at top left,#651FFF55,transparent 30%),
+    radial-gradient(circle at bottom right,#FF980055,transparent 30%),
+    var(--dark);
+}
+
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+.glow1{
+    width:400px;
+    height:400px;
+    background:#651FFF;
+    top:-150px;
+    left:-150px;
+    opacity:.25;
+}
+
+.glow2{
+    width:500px;
+    height:500px;
+    background:#FF9800;
+    bottom:-200px;
+    right:-200px;
+    opacity:.2;
+}
+
+.logo{
+    margin-bottom:20px;
+}
+
+.logo .mw{
+    font-size:90px;
+    font-weight:900;
+    background:linear-gradient(
+        45deg,
+        #651FFF,
+        #FF9800
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.logo .name{
+    color:#cfcfcf;
+    letter-spacing:4px;
+    font-size:14px;
+}
+
+.error{
+    font-size:160px;
+    font-weight:900;
+    line-height:1;
+    background:linear-gradient(
+        45deg,
+        #651FFF,
+        #FF9800
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+h1{
+    margin-top:15px;
+    font-size:38px;
+}
+
+p{
+    margin-top:10px;
+    max-width:600px;
+    color:#bdbdbd;
+}
+
+.btn{
+    margin-top:35px;
+    display:inline-block;
+    padding:15px 35px;
+    text-decoration:none;
+    color:white;
+    font-weight:700;
+    border-radius:15px;
+    background:linear-gradient(
+        45deg,
+        #651FFF,
+        #FF9800
+    );
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:.5;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    50%{
+        opacity:1;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<div class="stars"></div>
+
+<div class="logo">
+    <div class="mw">MW</div>
+    <div class="name">MESSIFY WALLPAPERS</div>
+</div>
+
+<div class="error">404</div>
+
+<h1>Page introuvable</h1>
+
+<p>
+Oups... Le wallpaper ou la page que tu cherches semble avoir disparu dans le multivers de Messify.
+</p>
+
+<a href="/" class="btn">
+🏠 Retour à l'accueil
+</a>
+
+
+
+
+</body>
+</html>
