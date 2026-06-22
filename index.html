@@ -3,252 +3,336 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messify Wallpapers</title>
 
-<title>WallSpace</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* RESET */
+:root{
+--primary:#651FFF;
+--secondary:#7C4DFF;
+--accent:#FF9800;
+--dark:#0F1117;
+--dark2:#181C27;
+--card:#202636;
+--text:#FFFFFF;
+--text2:#B0B8D0;
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top left,#2563eb33,transparent 25%),
-    radial-gradient(circle at bottom right,#7c3aed33,transparent 25%),
-    #050816;
-    overflow-x:hidden;
-    color:white;
+background:
+radial-gradient(circle at top left,#651FFF33,transparent 30%),
+radial-gradient(circle at bottom right,#FF980033,transparent 30%),
+var(--dark);
+color:var(--text);
+overflow-x:hidden;
 }
 
-/* PARTICLES */
-body::before{
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background-image:radial-gradient(white 1px,transparent 1px);
-    background-size:40px 40px;
-    opacity:0.08;
-    animation:moveBg 20s linear infinite;
-    z-index:0;
-}
-
-@keyframes moveBg{
-    from{transform:translateY(0);}
-    to{transform:translateY(-40px);}
-}
-
-/* HEADER */
 header{
-    width:100%;
-    padding:25px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:fixed;
-    top:0;
-    z-index:100;
-    backdrop-filter:blur(12px);
-    background:rgba(0,0,0,0.2);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(15,17,23,.8);
+backdrop-filter:blur(15px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo{
-    font-size:30px;
-    font-weight:700;
-    background:linear-gradient(90deg,#38bdf8,#8b5cf6);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+display:flex;
+flex-direction:column;
+}
+
+.logo span{
+font-size:40px;
+font-weight:900;
+background:linear-gradient(45deg,var(--primary),var(--accent));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.logo small{
+color:var(--text2);
+letter-spacing:3px;
 }
 
 nav{
-    display:flex;
-    gap:25px;
+display:flex;
+gap:25px;
 }
 
 nav a{
-    color:#dbeafe;
-    text-decoration:none;
-    transition:0.3s;
+color:white;
+text-decoration:none;
 }
 
-nav a:hover{
-    color:#38bdf8;
-}
-
-/* HERO */
 .hero{
-    padding:140px 8% 60px;
-    text-align:center;
-    position:relative;
-    z-index:2;
+padding:180px 8% 80px;
+text-align:center;
 }
 
 .hero h1{
-    font-size:65px;
-    line-height:1.1;
+font-size:70px;
+line-height:1.1;
 }
 
 .gradient{
-    background:linear-gradient(90deg,#38bdf8,#8b5cf6,#ec4899);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+background:linear-gradient(90deg,var(--primary),var(--accent));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
-    margin-top:20px;
-    color:#cbd5e1;
-    font-size:18px;
+margin-top:20px;
+color:var(--text2);
+font-size:18px;
 }
 
-/* GALLERY */
+.search{
+margin-top:35px;
+display:flex;
+justify-content:center;
+}
+
+.search input{
+width:100%;
+max-width:700px;
+padding:18px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,.05);
+color:white;
+outline:none;
+}
+
+.categories{
+margin-top:25px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.cat{
+padding:12px 20px;
+border:none;
+border-radius:50px;
+background:var(--card);
+color:white;
+cursor:pointer;
+}
+
+.cat:hover{
+background:var(--accent);
+}
+
 .gallery{
-    margin-top:60px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-    gap:20px;
+padding:0 8% 80px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
-/* CARD */
 .card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(12px);
-    border-radius:20px;
-    overflow:hidden;
-    transition:0.3s;
+background:var(--card);
+border-radius:25px;
+overflow:hidden;
+transition:.3s;
+position:relative;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+transform:translateY(-10px);
 }
 
 .card img{
-    width:100%;
-    height:160px;
-    object-fit:cover;
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.badge{
+position:absolute;
+top:15px;
+right:15px;
+background:var(--accent);
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:700;
 }
 
 .card-content{
-    padding:12px;
-    text-align:center;
+padding:18px;
 }
 
 .download{
-    display:block;
-    margin-top:10px;
-    padding:10px;
-    border-radius:12px;
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    background:linear-gradient(90deg,#2563eb,#7c3aed);
-    transition:0.3s;
+display:block;
+margin-top:12px;
+text-align:center;
+padding:12px;
+border-radius:12px;
+background:linear-gradient(
+45deg,
+var(--primary),
+var(--accent)
+);
+text-decoration:none;
+color:white;
+font-weight:600;
 }
 
-.download:hover{
-    transform:scale(1.03);
+.stats{
+padding:0 8% 80px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
 }
 
-/* RESPONSIVE */
-@media(max-width:700px){
-    .hero h1{
-        font-size:45px;
-    }
+.box{
+background:var(--card);
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.box h2{
+font-size:40px;
+color:var(--accent);
+}
+
+footer{
+padding:40px;
+text-align:center;
+background:#090B10;
+color:var(--text2);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:45px;
+}
+
+nav{
+display:none;
+}
+
 }
 
 </style>
 </head>
-
 <body>
 
 <header>
-    <div class="logo">WallSpace</div>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#">Catégories</a>
-        <a href="#">Upload</a>
-        <a href="#">Contact</a>
-    </nav>
+
+<div class="logo">
+<span>MW</span>
+<small>MESSIFY WALLPAPERS</small>
+</div>
+
+<nav>
+<a href="#">Accueil</a>
+<a href="#">Catégories</a>
+<a href="#">Top</a>
+<a href="#">Discord</a>
+</nav>
+
 </header>
 
 <section class="hero">
 
-    <h1>
-        Télécharge gratuitement des <span class="gradient">fonds d’écran</span> stylés
-    </h1>
+<h1>
+Des Wallpapers
+<span class="gradient">HD & 4K</span>
+pour tous tes appareils
+</h1>
 
-    <p>
-        Une collection premium de wallpapers HD gratuits pour ton téléphone et PC.
-    </p>
-<section>
-  
-  <h2>Wallapers</h2>
-    <div class="gallery">
+<p>
+Gaming • Anime • Voitures • Paysages • Mobile • PC
+</p>
 
-        <div class="card">
-            <img src="wallapers/1.jpg">
-            <div class="card-content">
-                <p>Miami</p>
-                <a class="download" href="wallapers/1.jpg" download>Télécharger</a>
-            </div>
-        </div>
+<div class="search">
+<input type="text" placeholder="Rechercher un wallpaper...">
+</div>
 
-        <div class="card">
-            <img src="wallapers/2.jpg">
-            <div class="card-content">
-                <p>Cyber Space</p>
-                <a class="download" href="wallapers/2.jpg" download>Télécharger</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="wallapers/3.jpg">
-            <div class="card-content">
-                <p>Ferrari</p>
-                <a class="download" href="wallapers/3.jpg" download>Télécharger</a>
-            </div>
-        </div>
-
-    </div>
-  <div class="card">
-    <img src="wallapers/4.jpg">
-    <div class="card-content">
-      <p>Supercar</p>
-      <a class="download"
-         href="wallapers/4.jpg"
-         download>Télécharger</a>
-    </div>
-  </div>
-    <div class="card">
-      <img src="wallapers.jpg">
-      <div class="card-content">
-        <p>Drift car</p>
-        <a class="download"
-           href="wallapers/5.jpg"
-           download>Télécharger</a>
-      </div>
-      <div class="card">
-        <img src="wallapers/6.jpg">
-        <div class="card-content">
-          <p>VP</p>
-          <a class="download"
-             href="wallapers/6.jpg"
-             download>Télécharger</a>
-        </div>
-        
-    
+<div class="categories">
+<button class="cat">🎮 Gaming</button>
+<button class="cat">📱 Mobile</button>
+<button class="cat">🖥️ PC</button>
+<button class="cat">🎌 Anime</button>
+<button class="cat">🚗 Cars</button>
+<button class="cat">🌄 Nature</button>
+</div>
 
 </section>
+
+<section class="gallery">
+
+<div class="card">
+<div class="badge">4K</div>
+<img src="https://picsum.photos/600/400?1">
+<div class="card-content">
+<h3>Cyber City</h3>
+<a href="#" class="download">Télécharger</a>
+</div>
+</div>
+
+<div class="card">
+<div class="badge">HD</div>
+<img src="https://picsum.photos/600/400?2">
+<div class="card-content">
+<h3>JDM Car</h3>
+<a href="#" class="download">Télécharger</a>
+</div>
+</div>
+
+<div class="card">
+<div class="badge">4K</div>
+<img src="https://picsum.photos/600/400?3">
+<div class="card-content">
+<h3>Mountains</h3>
+<a href="#" class="download">Télécharger</a>
+</div>
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="box">
+<h2>500+</h2>
+<p>Wallpapers</p>
+</div>
+
+<div class="box">
+<h2>20K+</h2>
+<p>Téléchargements</p>
+</div>
+
+<div class="box">
+<h2>4K</h2>
+<p>Qualité maximale</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Messify Wallpapers (MW)
+</footer>
 
 </body>
 </html>
